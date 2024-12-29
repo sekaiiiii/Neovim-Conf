@@ -73,7 +73,7 @@ vim.o.showtabline = 2
 -- vim.o.fillchars = "vert: "
 -- timeout
 vim.o.timeout = true
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 300
 -- edgy
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3

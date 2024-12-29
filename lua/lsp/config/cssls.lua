@@ -1,13 +1,13 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+
 local opts = {
-  on_attach = function(client, bufnr)
-    -- 禁用格式化功能，交给专门插件插件处理
-    -- client.server_capabilities.document_formatting = false
-    -- client.server_capabilities.document_range_formatting = false
-  end,
+	capabilities = capabilities
 }
 
 return {
-  on_setup = function(server)
-    server.setup(opts)
-  end,
+	on_setup = function(server)
+		server.setup(opts)
+	end,
 }

@@ -6,7 +6,7 @@ end
 
 require("noice").setup({
   cmdline = {
-    enabled = true,       -- enables the Noice cmdline UI
+    enabled = false,       -- enables the Noice cmdline UI
     view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
     opts = {},            -- global options for the cmdline. See section on views
     ---@type table<string, CmdlineFormat>
@@ -98,7 +98,7 @@ require("noice").setup({
     -- event is always "notify" and kind can be any log level as a string
     -- The default routes will forward notifications to nvim-notify
     -- Benefit of using Noice for this is the routing and consistent history view
-    enabled = true,
+    enabled = false,
     view = "notify",
   },
   lsp = {
@@ -122,7 +122,7 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = false,
     },
     hover = {
-      enabled = true,
+      enabled = false,
       silent = false, -- set to true to not show a message if hover is not available
       view = nil,  -- when nil, use defaults from documentation
       ---@type NoiceViewOptions
