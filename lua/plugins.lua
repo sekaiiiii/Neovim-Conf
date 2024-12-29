@@ -22,7 +22,7 @@ local themePlugins = {
 	{ "folke/tokyonight.nvim" },
 	{ "projekt0n/github-nvim-theme" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "navarasu/onedark.nvim" },
 }
 
@@ -34,10 +34,10 @@ local cmpPlugins = {
 	{ "saadparwaiz1/cmp_luasnip" },
 	-- 补全源
 	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/cmp-nvim-lsp" },               -- { name = nvim_lsp }
-	{ "hrsh7th/cmp-buffer" },                 -- { name = 'buffer' },
-	{ "hrsh7th/cmp-path" },                   -- { name = 'path' }
-	{ "hrsh7th/cmp-cmdline" },                -- { name = 'cmdline' }
+	{ "hrsh7th/cmp-nvim-lsp" }, -- { name = nvim_lsp }
+	{ "hrsh7th/cmp-buffer" }, -- { name = 'buffer' },
+	{ "hrsh7th/cmp-path" }, -- { name = 'path' }
+	{ "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
 	-- 常见编程语言代码段
 	{ "rafamadriz/friendly-snippets" },
@@ -56,7 +56,7 @@ local lspPlugins = {
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons",  -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
 }
@@ -330,15 +330,28 @@ local basicPlugins = {
 		"mfussenegger/nvim-dap",
 		config = function()
 			require("plugin-config.nvim-dap")
-		end
+		end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
-		end
-	}
+		end,
+	},
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("plugin-config.chatgpt")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"folke/trouble.nvim", -- optional
+			"nvim-telescope/telescope.nvim",
+		},
+	},
 }
 
 local plugins = table.merge_tables(themePlugins, cmpPlugins, lspPlugins, basicPlugins)
