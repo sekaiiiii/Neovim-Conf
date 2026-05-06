@@ -63,12 +63,15 @@ local lspPlugins = {
 
 local basicPlugins = {
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("plugin-config.nvim-tree")
+			require("plugin-config.neo-tree")
 		end,
 	},
 	{
@@ -261,7 +264,7 @@ local basicPlugins = {
 	{
 		"rmagatti/goto-preview",
 		lazy = true,
-		keys = { "gp" },
+		keys = require("keymaps.plugins").lazy_goto_preview(),
 		config = function()
 			require("plugin-config.goto-preview")
 		end,
@@ -338,20 +341,7 @@ local basicPlugins = {
 		config = function()
 			require("dapui").setup()
 		end,
-	},
-	{
-		"jackMort/ChatGPT.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugin-config.chatgpt")
-		end,
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"folke/trouble.nvim", -- optional
-			"nvim-telescope/telescope.nvim",
-		},
-	},
+	}
 }
 
 local plugins = table.merge_tables(themePlugins, cmpPlugins, lspPlugins, basicPlugins)

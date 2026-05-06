@@ -1,3 +1,5 @@
+local bqf_keys = require("keymaps.plugins").bqf()
+
 require("bqf").setup({
 	auto_enable = true,
 	auto_resize_height = true,
@@ -11,29 +13,13 @@ require("bqf").setup({
 			local bufname = vim.api.nvim_buf_get_name(bufnr)
 			local fsize = vim.fn.getfsize(bufname)
 			if fsize > 100 * 1024 then
-				-- skip file size greater than 100k
 				ret = false
 			elseif bufname:match("^fugitive://") then
-				-- skip fugitive buffer
 				ret = false
 			end
 			return ret
 		end,
 	},
-	func_map = {
-		drop = "o",
-		openc = "O",
-		split = "<C-s>",
-		tabdrop = "<C-t>",
-		tabc = "",
-		vsplit = "<C-v>",
-		ptogglemode = "z,",
-		stoggleup = "",
-	},
-	filter = {
-		fzf = {
-			action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
-			extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-		},
-	},
+	func_map = bqf_keys.func_map,
+	filter = bqf_keys.filter,
 })

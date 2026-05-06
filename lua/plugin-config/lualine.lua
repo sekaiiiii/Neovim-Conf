@@ -36,5 +36,5 @@ lualine.setup({
 		lualine_z = { "windows" },
 	},
 	winbar = {},
-	extensions = { "nvim-tree", "toggleterm", "mason", "lazy", "symbols-outline", "fzf", "quickfix", "trouble" },
+	extensions = { "neo-tree", "toggleterm", "mason", "lazy", "symbols-outline", "fzf", "quickfix", "trouble" },
 })

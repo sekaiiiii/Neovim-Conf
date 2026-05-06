@@ -22,14 +22,11 @@ require("lsp.setup")
 -- cmp加载
 require("cmp.setup")
 
--- keybindings加载
-require("keybindings")
+-- 集中式键位系统加载
+require("keymaps.init")
 
 -- gui初始化
 require("gui")
-
--- custom Plugin
-require("plugins.setup")
 
 -- custom cmd
 require("cmd.setup")

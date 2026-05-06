@@ -8,7 +8,7 @@ picker.setup({
 	include_current = false,
 	filter_rules = {
 		bo = {
-			filetype = { "notify", "quickfix", "NvimTree", "help", "noice" },
+			filetype = { "notify", "quickfix", "neo-tree", "help", "noice" },
 			buftype = { "terminal" },
 		},
 	},

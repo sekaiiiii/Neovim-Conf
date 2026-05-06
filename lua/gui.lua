@@ -2,9 +2,9 @@
 -- vim.g.font = 'CodeNewRoman Nerd Font Mono'
 -- vim.g.font = 'ComicShannsMono Nerd Font'
 -- vim.g.font = 'BlexMono Nerd Font Mono'
--- vim.g.font = "FiraCode Nerd Font"
+vim.g.font = "FiraCode Nerd Font"
 -- vim.g.font = "Arimo Nerd Font"
-vim.g.font = "Cousine Nerd Font Mono"
+-- vim.g.font = "Cousine Nerd Font Mono"
 -- 字体大小
 vim.g.fontSize = 12
 

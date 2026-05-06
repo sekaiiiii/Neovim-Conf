@@ -8,18 +8,7 @@ telescope.setup({
 	defaults = {
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
-		mappings = {
-			i = {
-				-- map actions.which_key to <C-h> (default: <C-/>)
-				-- actions.which_key shows the mappings for your picker,
-				-- e.g. git_{create, delete, ...}_branch for the git_branches picker
-				["<C-j>"] = "move_selection_next",
-				["<C-k>"] = "move_selection_previous",
-				["<C-e>"] = "preview_scrolling_down",
-				["<c-y"] = "preview_scrolling_up",
-				["<C-h>"] = "which_key",
-			},
-		},
+		mappings = require("keymaps.plugins").telescope(),
 	},
 	pickers = {
 		-- Default configuration for builtin pickers goes here:

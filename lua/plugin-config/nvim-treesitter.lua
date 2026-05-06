@@ -40,15 +40,10 @@ treesitter.setup({
   -- 启用代码高亮模块
   highlight = { enable = true, additional_vim_regex_highlighting = false },
   -- 启用增量选择模块
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<CR>", -- set to `false` to disable one of the mappings
-      node_incremental = "<CR>",
-      scope_incremental = "<TAB>",
-      node_decremental = "<BS>",
-    },
-  },
+  incremental_selection = (function()
+    local km = require("keymaps.plugins").treesitter().incremental_selection
+    return { enable = true, keymaps = km.keymaps }
+  end)(),
   -- 启用代码缩进模块 (=)
   indent = { enable = true },
   -- nvim-treesitter/nvim-treesitter-refactor
@@ -61,51 +56,5 @@ treesitter.setup({
     highlight_current_scope = { enable = false },
   },
   -- nvim-treesitter/nvim-treesitter-textobjects
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["ai"] = "@conditional.outer",
-        ["ii"] = "@conditional.inner",
-        ["al"] = "@loop.outer",
-        ["il"] = "@loop.inner",
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-      },
-    },
-    swap = {
-      enable = false,
-      swap_next = { ["<leader>a"] = "@parameter.inner" },
-      swap_previous = { ["<leader>A"] = "@parameter.inner" },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-  },
+  textobjects = require("keymaps.plugins").treesitter().textobjects,
 })

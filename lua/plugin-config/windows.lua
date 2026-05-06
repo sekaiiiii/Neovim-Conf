@@ -12,7 +12,6 @@ windows.setup({
   ignore = {
     buftype = { "quickfix" },
     filetype = {
-      "NvimTree",
       "neo-tree",
       "undotree",
       "gundo",

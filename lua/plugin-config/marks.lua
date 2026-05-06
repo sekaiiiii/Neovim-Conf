@@ -1,5 +1,6 @@
-require("marks").setup({
-	default_mappings = true,
+local marks_keys = require("keymaps.plugins").marks()
+
+require("marks").setup(vim.tbl_extend("force", {
 	-- builtin_marks = { ".", "<", ">", "^" },
 	cyclic = true,
 	force_write_shada = false,
@@ -7,7 +8,7 @@ require("marks").setup({
 	sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
 	excluded_filetypes = {
 		"qf",
-		"NvimTree",
+		"neo-tree",
 		"toggleterm",
 		"TelescopePrompt",
 		"alpha",
@@ -18,5 +19,4 @@ require("marks").setup({
 		virt_text = "hello world",
 		annotate = false,
 	},
-	mappings = {},
-})
+}, marks_keys))

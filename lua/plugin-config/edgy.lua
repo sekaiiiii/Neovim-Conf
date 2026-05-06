@@ -27,6 +27,17 @@ local actual_opts = {
 	animate = { enabled = false },
 	exit_when_last = true,
 	close_when_all_hidden = true,
+	left = {
+		{
+			title = "Neo-Tree",
+			ft = "neo-tree",
+			filter = function(buf)
+				return vim.bo[buf].filetype == "neo-tree"
+			end,
+			pinned = true,
+			open = "Neotree",
+		},
+	},
 	bottom = {
 		-- {
 		-- 	ft = "toggleterm",

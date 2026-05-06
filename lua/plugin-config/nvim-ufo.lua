@@ -52,12 +52,7 @@ require("ufo").setup({
 			winhighlight = "Normal:Folded",
 			winblend = 0,
 		},
-		mappings = {
-			scrollU = "<C-u>",
-			scrollD = "<C-d>",
-			jumpTop = "[",
-			jumpBot = "]",
-		},
+		mappings = require("keymaps.plugins").ufo_preview(),
 	},
 	provider_selector = function(bufnr, filetype, buftype)
 		return ftMap[filetype]

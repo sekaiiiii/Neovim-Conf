@@ -8,32 +8,7 @@ if not status then
 	return
 end
 
-local status, config = pcall(require, "keybindings")
-if not status then
-	return
-end
-
-local mapping = {
-	-- 出现补全
-	[config.cmp_keys.cmp_complete] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-	-- 取消
-	[config.cmp_keys.cmp_abort] = cmp.mapping({
-		i = cmp.mapping.abort(),
-		c = cmp.mapping.close(),
-	}),
-	-- 确认
-	[config.cmp_keys.cmp_confirm] = cmp.mapping.confirm({
-		select = true,
-		behavior = cmp.ConfirmBehavior.Replace,
-	}),
-	-- 如果窗口内容太多，可以滚动
-	[config.cmp_keys.cmp_scroll_doc_up] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-	[config.cmp_keys.cmp_scroll_doc_down] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-	-- 上一个
-	[config.cmp_keys.cmp_select_prev_item] = cmp.mapping.select_prev_item(),
-	-- 下一个
-	[config.cmp_keys.cmp_select_next_item] = cmp.mapping.select_next_item(),
-}
+local mapping = require("keymaps.plugins").cmp(cmp, luasnip)
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
